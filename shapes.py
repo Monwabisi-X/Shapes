@@ -1,3 +1,5 @@
+import string as alph
+
 def solid_rectangle(rows, cols):
     """
     Constructs a solid rectangle pattern composed of asterisks ('*').
@@ -143,10 +145,6 @@ def number_triangle(rows):
     
     return shape
 
-sh = number_triangle(5)
-for i in sh:
-    print(i)
-
 def floyds_triangle(rows):
     """
     Constructs Floyd's triangle pattern composed of consecutive numbers.
@@ -157,7 +155,17 @@ def floyds_triangle(rows):
     Returns:
     list: A list of strings, each representing a row of Floyd's triangle.
     """
-    pass
+    shape = []
+    x = 1
+    for i in range(rows):
+        string = ""
+        for n in range(i + 1):
+            string += str(x)
+            x += 1
+            if n != i:
+                string += " "
+        shape.append(string)
+    return shape
 
 def alphabet_pyramid(rows):
     """
@@ -169,7 +177,12 @@ def alphabet_pyramid(rows):
     Returns:
     list: A list of strings, each representing a row of the alphabet pyramid.
     """
-    pass
+    shape = []
+    for row in range(rows):
+        string = " " * (rows - row -1) + str(alph.ascii_uppercase[row]) * (2 * row + 1)
+        shape.append(string)
+    
+    return shape
 
 def mirrored_right_angled_triangle(rows):
     """
@@ -181,7 +194,12 @@ def mirrored_right_angled_triangle(rows):
     Returns:
     list: A list of strings, each representing a row of the mirrored triangle.
     """
-    pass
+    shape = []
+    for i in range(rows):
+        string = " " * (rows - i - 1) + "*" * (i + 1)
+        shape.append(string)
+    
+    return shape
 
 def hourglass(rows):
     """
@@ -193,7 +211,16 @@ def hourglass(rows):
     Returns:
     list: A list of strings, each representing a row of the hourglass.
     """
-    pass
+    shape = []
+    for i in reversed(range(1, rows // 2 + 1)):
+        string = " " * ((rows // 2 + 1) - i -1) + "*" * (2 * i + 1) + " " * ((rows // 2 + 1) - i -1)
+        shape.append(string)
+    
+    for i in range(rows//2 + 1):
+        string = " " * ((rows // 2 + 1) - i -1) + "*" * (2 * i + 1) + " " * ((rows // 2 + 1) - i -1)
+        shape.append(string)
+    
+    return shape
 
 def pascals_triangle(rows):
     """
