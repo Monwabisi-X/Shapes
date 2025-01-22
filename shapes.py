@@ -82,7 +82,16 @@ def diamond(rows):
     Returns:
     list: A list of strings, each representing a row of the diamond.
     """
-    pass
+    shape = []
+    for row in range(rows):
+        string = " " * (rows - row - 1) + "*" * (2 * row + 1)
+        shape.append(string)
+    
+    for row in reversed(range(rows - 1)):
+        string = " " * (rows - row - 1) + "*" * (2 * row + 1)
+        shape.append(string)
+    
+    return shape
 
 def hollow_diamond(rows):
     """
@@ -94,7 +103,24 @@ def hollow_diamond(rows):
     Returns:
     list: A list of strings, each representing a row of the hollow diamond.
     """
-    pass
+    shape = []
+    for row in range(rows):
+        spaces =  " " * (2 * (row - 1) + 1)
+        if row != 0:
+            string = " " * (rows - row - 1) + "*" + spaces + "*"
+        else:
+            string = " " * (rows - row - 1) + "*" * (2 * row + 1)
+        shape.append(string)
+    
+    for row in reversed(range(rows - 1)):
+        spaces =  " " * (2 * (row - 1) + 1)
+        if row != 0:
+            string = " " * (rows - row - 1) + "*" + spaces + "*"
+        else:
+            string = " " * (rows - row - 1) + "*" * (2 * row + 1)
+        shape.append(string)
+    
+    return shape
 
 def number_triangle(rows):
     """
@@ -106,7 +132,20 @@ def number_triangle(rows):
     Returns:
     list: A list of strings, each representing a row of the number triangle.
     """
-    pass
+    shape = []
+    for row in range(rows):
+        string = ""
+        for i in range(row + 1):
+            string += str(row + 1)
+            if i != row:
+                string += " "
+        shape.append(string)
+    
+    return shape
+
+sh = number_triangle(5)
+for i in sh:
+    print(i)
 
 def floyds_triangle(rows):
     """
